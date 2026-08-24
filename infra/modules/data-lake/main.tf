@@ -11,7 +11,7 @@ resource "google_storage_bucket" "raw" {
   force_destroy = false
 
   # Ninguém consegue tornar esse bucket público por engano
-  public_access_prevention   = "enforced"
+  public_access_prevention    = "enforced"
   uniform_bucket_level_access = true
 
   # Guarda versões antigas de um arquivo caso algo seja sobrescrito por engano
