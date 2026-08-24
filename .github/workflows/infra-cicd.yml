@@ -1,6 +1,7 @@
 name: Infraestrutura Kenzie V2 (Terraform)
 
 on:
+  workflow_request:
   pull_request:
     paths: ["infra/**"]
   push:
