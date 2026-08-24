@@ -1,0 +1,241 @@
+name: CI/CD - Chat de Suporte a Investimentos
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: "3.12"
+  IMAGE_NAME: chat-investimentos
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+
+  lint:
+    name: Lint & Formatação
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Instalar dependências de dev
+        run: pip install ruff black mypy
+
+      - name: Ruff (lint)
+        run: ruff check .
+
+      - name: Black (formatação)
+        run: black --check .
+
+      - name: Mypy (tipagem)
+        run: mypy . --ignore-missing-imports
+
+  test:
+    name: Testes
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Rodar testes unitários com cobertura
+        run: pytest --cov=app --cov-report=xml --cov-fail-under=80
+
+      - name: Upload de cobertura
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage.xml
+
+  security:
+    name: Análise de Segurança
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan de segredos vazados (gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: SAST - análise estática de código (Bandit)
+        run: |
+          pip install bandit
+          bandit -r app/ -ll
+
+      - name: Auditoria de dependências vulneráveis
+        run: |
+          pip install pip-audit
+          pip-audit -r requirements.txt
+
+      - name: Scan de vulnerabilidades na imagem (Trivy)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: CRITICAL,HIGH
+          exit-code: 1
+
+  quality-chat:
+    name: Avaliação de Resolução de Problemas
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Rodar suíte de avaliação (casos de cliente)
+        run: |
+          python -m tests.quality.run_eval \
+            --casos tests/quality/casos_clientes.yaml \
+            --min-taxa-resolucao 0.85
+
+      - name: Publicar relatório de avaliação
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-qualidade-chat
+          path: tests/quality/relatorio.html
+
+  build:
+    name: Build da Imagem
+    runs-on: ubuntu-latest
+    needs: [quality-chat, security]
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build da imagem Docker
+        run: docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} .
+
+      - name: Salvar imagem como .tar
+        run: docker save ${{ env.IMAGE_NAME }}:${{ github.sha }} -o image.tar
+
+      - name: Upload do artefato da imagem
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-image
+          path: image.tar
+          retention-days: 5
+
+  deploy-staging:
+    name: Deploy Staging (on-premises)
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/develop'
+    environment:
+      name: staging
+      url: https://staging.chat-investimentos.suaempresa.com.br
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Baixar imagem buildada
+        uses: actions/download-artifact@v4
+        with:
+          name: docker-image
+
+      - name: Copiar imagem para o servidor de staging
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          source: "image.tar"
+          target: "/opt/chat-investimentos/deploy/"
+
+      - name: Carregar imagem e reiniciar serviço
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          script: |
+            cd /opt/chat-investimentos/deploy
+            docker load -i image.tar
+            docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} ${{ env.IMAGE_NAME }}:staging
+            docker compose up -d --force-recreate
+
+      - name: Testes de fumaça (smoke tests)
+        run: |
+          echo "Validando endpoint /health em staging"
+          curl -f https://staging.chat-investimentos.suaempresa.com.br/health
+
+  deploy-production:
+    name: Deploy Produção (on-premises)
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
+      url: https://chat-investimentos.suaempresa.com.br
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Baixar imagem buildada
+        uses: actions/download-artifact@v4
+        with:
+          name: docker-image
+
+      - name: Copiar imagem para o servidor de produção
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          source: "image.tar"
+          target: "/opt/chat-investimentos/deploy/"
+
+      - name: Carregar imagem e reiniciar serviço
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          script: |
+            cd /opt/chat-investimentos/deploy
+            docker tag ${{ env.IMAGE_NAME }}:producao ${{ env.IMAGE_NAME }}:producao-anterior || true
+            docker load -i image.tar
+            docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} ${{ env.IMAGE_NAME }}:producao
+            docker compose up -d --force-recreate
+
+      - name: Validação pós-deploy
+        id: valida
+        run: curl -f https://chat-investimentos.suaempresa.com.br/health
+
+      - name: Rollback automático em caso de falha
+        if: failure() && steps.valida.outcome == 'failure'
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          script: |
+            cd /opt/chat-investimentos/deploy
+            docker tag ${{ env.IMAGE_NAME }}:producao-anterior ${{ env.IMAGE_NAME }}:producao
+            docker compose up -d --force-recreate
