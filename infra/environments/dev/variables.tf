@@ -6,5 +6,25 @@ variable "project_id" {
 variable "region" {
   description = "Região do GCP"
   type        = string
-  default     = "southamerica-east1"
+  default     = "us-central1"
+}
+
+variable "bucket_raw_name" {
+  description = "Nome exato do bucket RAW já existente"
+  type        = string
+}
+
+variable "dataset_bronze_id" {
+  description = "ID exato do dataset BRONZE já existente"
+  type        = string
+}
+
+variable "dataset_silver_id" {
+  description = "ID exato do dataset SILVER já existente"
+  type        = string
+}
+
+variable "dataset_gold_id" {
+  description = "ID exato do dataset GOLD já existente"
+  type        = string
 }

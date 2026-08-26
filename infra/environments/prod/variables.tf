@@ -4,7 +4,7 @@ variable "project_id" {
 }
 
 variable "region" {
-  description = "Região do GCP"
+  description = "Região do GCP. Mantida igual à de dev: o BigQuery não faz join entre regiões."
   type        = string
-  default     = "southamerica-east1"
+  default     = "us-central1"
 }

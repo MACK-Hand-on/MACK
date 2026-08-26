@@ -1,17 +1,33 @@
-name: Infraestrutura Kenzie V2 (Terraform)
+name: Infraestrutura Kenzie 360 (Terraform)
 
+# QUANDO ESTE PIPELINE RODA
+#   Pull Request tocando infra/  -> valida + mostra o plano como comentário no PR
+#   Merge em main tocando infra/ -> aplica no ambiente dev (com aprovação manual)
+#   Botão "Run workflow"         -> aplica em produção (quando o projeto existir)
 on:
   pull_request:
     paths: ["infra/**"]
   push:
     branches: [main]
     paths: ["infra/**"]
+  workflow_dispatch:
+    inputs:
+      ambiente:
+        description: "Ambiente a aplicar manualmente"
+        required: true
+        default: "prod"
+        type: choice
+        options: ["prod"]
 
 env:
   TF_VERSION: "1.7.5"
 
 jobs:
 
+  # ───────────────────────────────────────────────────────────
+  # 1. VALIDAR — formatação, sintaxe, boas práticas e segurança.
+  #    Não toca no GCP: roda com -backend=false.
+  # ───────────────────────────────────────────────────────────
   validate:
     name: Validar Terraform
     runs-on: ubuntu-latest
@@ -32,11 +48,124 @@ jobs:
           terraform init -backend=false
           terraform validate
 
+      - name: Validar sintaxe (ambiente prod)
+        working-directory: infra/environments/prod
+        run: |
+          terraform init -backend=false
+          terraform validate
+
+      # tflint: pega erro de boa prática específico do GCP
+      # (tipo de máquina inexistente, atributo obsoleto, variável não usada)
+      - name: Instalar tflint
+        uses: terraform-linters/setup-tflint@v4
+
+      - name: Rodar tflint
+        run: |
+          tflint --init
+          tflint --recursive -f compact
+
+      # checkov: varredura de segurança. Detecta bucket público,
+      # IAM permissivo demais, dataset sem controle de acesso.
+      # Começa em modo "soft" (avisa mas não quebra o build).
+      # Quando o time zerar os achados, remover --soft-fail.
+      - name: Instalar checkov
+        run: pip install "checkov~=3.2"
+
+      - name: Rodar checkov
+        run: checkov -d infra/ --framework terraform --compact --quiet --soft-fail
+
+  # ───────────────────────────────────────────────────────────
+  # 2. PLANO (Pull Request) — mostra o que MUDARIA, sem mudar nada.
+  #    O resultado vira comentário no próprio PR, para quem revisa
+  #    não precisar abrir a aba Actions e caçar no log.
+  # ───────────────────────────────────────────────────────────
   plan-dev:
     name: Plano - Ambiente Dev
     runs-on: ubuntu-latest
     needs: validate
     if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      id-token: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Autenticar no GCP (sem chave fixa)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+
+      - name: terraform init
+        working-directory: infra/environments/dev
+        run: terraform init
+
+      - name: terraform plan
+        id: plan
+        working-directory: infra/environments/dev
+        continue-on-error: true
+        run: |
+          terraform plan -no-color -input=false -out=tfplan | tee plan.txt
+          echo "exitcode=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Publicar plano como comentário no PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const caminho = 'infra/environments/dev/plan.txt';
+            let plano = fs.existsSync(caminho)
+              ? fs.readFileSync(caminho, 'utf8')
+              : '(o plano não foi gerado — veja o log do job)';
+            const LIMITE = 60000;
+            if (plano.length > LIMITE) {
+              plano = plano.slice(-LIMITE) + '\n\n[...plano truncado, veja o log completo em Actions]';
+            }
+            const corpo = [
+              '### Plano do Terraform — ambiente `dev`',
+              '',
+              'Isto é apenas uma **previsão**. Nada foi alterado no GCP.',
+              'Confira se não há linha com `destroy` antes de aprovar.',
+              '',
+              '<details><summary>Ver plano completo</summary>',
+              '',
+              '```hcl',
+              plano,
+              '```',
+              '',
+              '</details>',
+            ].join('\n');
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: corpo,
+            });
+
+      - name: Falhar se o plano falhou
+        if: steps.plan.outputs.exitcode != '0'
+        run: exit 1
+
+  # ───────────────────────────────────────────────────────────
+  # 3. APLICAR NO DEV — só depois do merge em main.
+  #    Gera o plano e aplica EXATAMENTE aquele plano (arquivo tfplan),
+  #    para não aplicar algo diferente do que foi revisado.
+  #    O "environment: gcp-dev" permite exigir aprovação humana
+  #    em Settings > Environments > gcp-dev > Required reviewers.
+  # ───────────────────────────────────────────────────────────
+  apply-dev:
+    name: Aplicar - Ambiente Dev
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: gcp-dev
     permissions:
       contents: read
       id-token: write
@@ -60,13 +189,23 @@ jobs:
 
       - name: terraform plan
         working-directory: infra/environments/dev
-        run: terraform plan -no-color
+        run: terraform plan -no-color -input=false -out=tfplan
 
+      - name: terraform apply
+        working-directory: infra/environments/dev
+        run: terraform apply -input=false tfplan
+
+  # ───────────────────────────────────────────────────────────
+  # 4. APLICAR EM PRODUÇÃO — apenas manual, pelo botão "Run workflow".
+  #    O ambiente de produção ainda não foi provisionado: o projeto
+  #    acadêmico roda em um único projeto GCP. Este job existe para
+  #    demonstrar a separação dev/prod prevista na arquitetura.
+  # ───────────────────────────────────────────────────────────
   apply-prod:
-    name: Aplicar - Produção
+    name: Aplicar - Produção (manual)
     runs-on: ubuntu-latest
     needs: validate
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch' && inputs.ambiente == 'prod'
     environment:
       name: production
     permissions:
@@ -90,6 +229,10 @@ jobs:
         working-directory: infra/environments/prod
         run: terraform init
 
+      - name: terraform plan
+        working-directory: infra/environments/prod
+        run: terraform plan -no-color -input=false -out=tfplan
+
       - name: terraform apply
         working-directory: infra/environments/prod
-        run: terraform apply -auto-approve
+        run: terraform apply -input=false tfplan
