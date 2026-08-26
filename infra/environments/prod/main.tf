@@ -14,6 +14,8 @@ provider "google" {
   region  = var.region
 }
 
+# Sem nomes explícitos: em produção os recursos seriam criados do zero,
+# então o módulo gera os nomes no padrão "<projeto>-kenzie-<camada>-prod".
 module "data_lake" {
   source      = "../../modules/data-lake"
   project_id  = var.project_id

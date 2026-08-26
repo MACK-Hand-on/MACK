@@ -1,0 +1,13 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+tfplan
+plan.txt
+crash.log
+
+# Nunca versionar credenciais de service account
+*-key.json
+*credentials*.json
+service-account*.json
+.env
