@@ -1,0 +1,9 @@
+KENZIE 360 - Estagio 1: classificador de intencao
+conversas de treino      : 25415
+conversas de teste       : 8383
+divisao                  : por id_cliente, 75/25, zero sobreposicao
+baseline (classe maior)  : 14.48%
+acuracia                 : 99.99%
+f1 macro                 : 99.93%
+teto do problema         : 100.00%
+acuracia do roteamento   : 99.99%

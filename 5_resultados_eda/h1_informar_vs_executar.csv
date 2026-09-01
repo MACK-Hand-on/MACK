@@ -1,0 +1,5 @@
+﻿tipo_demanda;conversas;pct_do_total;pct_bot_resolve;pct_pede_humano;duracao_media_min;csat_medio;pct_reabertura
+1. Informacional (so consultar);6622;18.4;45.9;37.0;11.6;3.87;17.7
+2. Misto (consulta + acao leve);7241;20.1;33.8;45.0;12.8;3.76;17.7
+3. Transacional (exige sistema);17179;47.7;20.9;54.4;14.4;3.65;17.7
+4. Nao atendimento (disparo/ruido);4958;13.8;0.0;0.0;0.5;4.1;18.8

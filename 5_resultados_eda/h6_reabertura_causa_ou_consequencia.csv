@@ -1,0 +1,4 @@
+﻿situacao;conversas;pct_anterior_sem_resolucao;pct_bot_resolve_agora;pct_pede_humano_agora;pct_negativo_agora;turnos_agora;duracao_agora;csat_agora
+1. Primeiro contato do cliente;15000;0.0;29.9;41.1;22.0;11.3;11.6;3.82
+2. Reabertura (anterior nao resolveu);6421;100.0;17.2;40.6;34.7;11.0;11.4;3.57
+3. Novo contato (anterior resolveu);14579;0.0;24.0;43.0;27.5;11.4;11.9;3.71

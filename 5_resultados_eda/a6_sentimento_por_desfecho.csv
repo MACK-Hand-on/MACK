@@ -1,0 +1,15 @@
+﻿sentimento_inicial;status_conversa;conversas;pct_dentro_do_sentimento;csat_medio
+Negativo;Resolvida por humano;5356;34.2;4.2
+Negativo;Resolvida pelo bot;3832;24.4;4.34
+Negativo;Abandonada pelo cliente;3166;20.2;1.76
+Negativo;Opt-out / descadastro;1275;8.1;4.13
+Negativo;Transferida - sem resolucao;1027;6.6;1.8
+Negativo;Encerrada sem resolucao;1022;6.5;1.85
+Neutro;Resolvida por humano;6053;34.4;4.19
+Neutro;Resolvida pelo bot;5252;29.8;4.33
+Neutro;Abandonada pelo cliente;3063;17.4;1.74
+Neutro;Encerrada sem resolucao;1140;6.5;1.89
+Neutro;Transferida - sem resolucao;1131;6.4;1.83
+Neutro;Ruido - contato por engano;514;2.9;4.07
+Neutro;Contato sem contexto (oi/teste);451;2.6;4.17
+Positivo;Cliente ja havia resolvido;516;100.0;3.94
