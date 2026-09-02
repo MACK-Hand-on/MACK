@@ -1,4 +1,4 @@
-# Terraform
+# ---------------------------------------------------------------- Terraform
 .terraform/
 *.tfstate
 *.tfstate.*
@@ -6,8 +6,28 @@ tfplan
 plan.txt
 crash.log
 
-# Nunca versionar credenciais de service account
+# ------------------------------------------- Nunca versionar credenciais
 *-key.json
 *credentials*.json
 service-account*.json
 .env
+*.pem
+
+# ---------------------------------------------------------------- Dados
+# A base versionada e a comprimida, em 2_dados/atual_v8/*.csv.gz (13 MB).
+# Os CSVs descompactados somam 101 MB e sao derivados - nao entram no Git.
+# Ver 2_dados/LEIA-ME.md para descompactar ou regerar.
+2_dados/**/*.csv
+!2_dados/amostras/*.csv
+
+# ---------------------------------------------------------------- Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------- Diversos
+*.bak
+.DS_Store
+Thumbs.db

@@ -1,0 +1,226 @@
+id_conversa;id_cliente;segmento_cliente;idioma;categoria_assunto;ordem;timestamp;remetente;texto;sentimento;tipo_midia;contem_dado_mascarado
+CONV-000155;CLI-9EBE44F9F140;Correntista Nacional;PT;Ruido / Nao-atendimento;1;2026-02-17 19:22:32;Cliente;Foi engano, pode ignorar.;Neutro;texto;False
+CONV-000155;CLI-9EBE44F9F140;Correntista Nacional;PT;Ruido / Nao-atendimento;2;2026-02-17 19:22:42;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Tudo bem! Estou por aqui se precisar.;;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;1;2026-02-17 06:50:00;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Temos novidades sobre o seu CDB, quer saber mais?;;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;2;2026-02-17 06:51:07;Cliente;Meu limite de PIX caiu de repente. Que servico pessimo, decepcionante. 😞;Negativo;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;3;2026-02-17 06:51:17;Kenzie;Posso mostrar seus limites atuais e registrar um pedido de ajuste.;;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;4;2026-02-17 06:51:25;Kenzie;Desculpe, acho que nao entendi. Voce quer falar sobre cartao de credito?;;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;5;2026-02-17 06:52:46;Cliente;Nao, nao e sobre isso.;Negativo;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;6;2026-02-17 06:53:03;Kenzie;Posso mostrar seus limites atuais e registrar um pedido de ajuste.;;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;7;2026-02-17 06:55:00;Cliente;[audio transcrito] Continua sem funcionar. Isso e um absurdo. 😞 Minha conta e [CONTA].;Negativo;audio;True
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;8;2026-02-17 06:55:17;Kenzie;Consegui puxar a informacao, so um momento.;;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;9;2026-02-17 06:55:56;Cliente;Entendi, e depois ddisso?;Neutro;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;10;2026-02-17 06:55:59;Kenzie;Ja localizei seu cadastro, um instante.;;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;11;2026-02-17 06:57:14;Cliente;otimo, muito obrigado!;Positivo;texto;False
+CONV-002815;CLI-7F31ACC6E710;CDE;PT;Alteracao de Limites;12;2026-02-17 06:57:20;Kenzie;Resolvido! Qualquer coisa, e so chamar.;;texto;False
+CONV-004777;CLI-484E13CA8D49;CDE;EN;Ruido / Nao-atendimento;1;2026-02-17 17:53:54;Cliente;Never mind, I already solved it. 🙏;Positivo;texto;False
+CONV-004777;CLI-484E13CA8D49;CDE;EN;Ruido / Nao-atendimento;2;2026-02-17 17:54:01;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. How can I help? All good! I'm here if you need me.;;texto;False
+CONV-004777;CLI-484E13CA8D49;CDE;EN;Ruido / Nao-atendimento;3;2026-02-17 17:54:55;Cliente;thanks!;Positivo;texto;False
+CONV-005849;CLI-B8D1B1E2D7BA;CDE;EN;Disparo Ativo;1;2026-02-17 08:53:45;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. We have news about your CDB, want to know more?;;texto;False
+CONV-006143;CLI-69A2E37F315A;CDE;EN;Onboarding - Documentacao;1;2026-02-17 00:16:22;Cliente;i can't upload my passport in the app.;Neutro;texto;False
+CONV-006143;CLI-69A2E37F315A;CDE;EN;Onboarding - Documentacao;2;2026-02-17 00:16:39;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. How can I help? For onboarding we accept a photo ID and a recent proof of address. I can check your submission.;;texto;False
+CONV-006143;CLI-69A2E37F315A;CDE;EN;Onboarding - Documentacao;3;2026-02-17 00:18:35;Cliente;It still doesn't work. I'm very unhappy with the bank.;Negativo;texto;False
+CONV-006143;CLI-69A2E37F315A;CDE;EN;Onboarding - Documentacao;4;2026-02-17 00:18:56;Kenzie;I found your profile, one moment.;;texto;False
+CONV-006143;CLI-69A2E37F315A;CDE;EN;Onboarding - Documentacao;5;2026-02-17 00:20:43;Cliente;[audio transcrito] it still doesn''t work. i'm really frustrated with this.;Negativo;audio;False
+CONV-006143;CLI-69A2E37F315A;CDE;EN;Onboarding - Documentacao;6;2026-02-17 00:20:49;Kenzie;Got the info, just a second.;;texto;False
+CONV-006143;CLI-69A2E37F315A;CDE;EN;Onboarding - Documentacao;7;2026-02-17 00:22:00;Cliente;perfect, all resolved!;Positivo;texto;False
+CONV-006143;CLI-69A2E37F315A;CDE;EN;Onboarding - Documentacao;8;2026-02-17 00:22:05;Kenzie;Glad to help! Anything else?;;texto;False
+CONV-006299;CLI-5FB6178CAC76;CDE;EN;Ruido / Nao-atendimento;1;2026-02-17 19:24:11;Cliente;Good morning. Hi;Neutro;texto;False
+CONV-006299;CLI-5FB6178CAC76;CDE;EN;Ruido / Nao-atendimento;2;2026-02-17 19:24:15;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. How can I help? All good! I'm here if you need me.;;texto;False
+CONV-006299;CLI-5FB6178CAC76;CDE;EN;Ruido / Nao-atendimento;3;2026-02-17 19:25:10;Cliente;[audio transcrito] Thanks!;Positivo;audio;False
+CONV-007079;CLI-CCAC3D26EB1F;Correntista Nacional;PT;Disparo Ativo;1;2026-02-17 08:20:57;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Lembrete: atualize seu cadastro para manter sua conta ativa.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;1;2026-02-17 04:36:19;Cliente;My PIX was blocked without notice!;Neutro;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;2;2026-02-17 04:36:31;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. How can I help? Sorry for the trouble. Blocks happen for security. I'm checking it now.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;3;2026-02-17 04:36:46;Cliente;That didn't solve it. I'm really frustrated with this.;Negativo;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;4;2026-02-17 04:36:57;Kenzie;I'm checking the details here.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;5;2026-02-17 04:38:17;Cliente;And how do we proceed noww?;Neutro;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;6;2026-02-17 04:38:41;Kenzie;Got the info, just a second.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;7;2026-02-17 04:40:25;Cliente;i see, and then?;Neutro;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;8;2026-02-17 04:40:35;Kenzie;I'll transfer you to a human agent, one moment.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;9;2026-02-17 04:53:43;Atendente Humano;Hi, I'm from the specialist team, I'll handle this.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;10;2026-02-17 04:54:49;Cliente;It stilll doesn't work. This is unacceptable. My email is [EMAIL].;Negativo;texto;True
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;11;2026-02-17 04:58:30;Atendente Humano;I've checked part of it, one more moment.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;12;2026-02-17 04:58:56;Cliente;I see, and then?;Neutro;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;13;2026-02-17 05:01:44;Atendente Humano;I've checked part of it, one more moment.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;14;2026-02-17 05:02:29;Cliente;That didn't solve it.. Third time I try, losing my patience.;Negativo;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;15;2026-02-17 05:04:30;Atendente Humano;Let me check that in the system, one moment.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;16;2026-02-17 05:07:35;Atendente Humano;Fixed your case manually, resolved.;;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;17;2026-02-17 05:08:57;Cliente;Great, thhank u! 😊;Positivo;texto;False
+CONV-009883;CLI-8324B09DDCCD;CDE;EN;Bloqueio TED/PIX;18;2026-02-17 05:09:10;Atendente Humano;Anything else you need?;;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;1;2026-02-17 08:07:21;Cliente;Qual e o meu limite atual?;Neutro;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;2;2026-02-17 08:07:30;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Posso mostrar seus limites atuais e registrar um pedido de ajuste.;;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;3;2026-02-17 08:08:50;Cliente;Entendi, e depois disso?;Neutro;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;4;2026-02-17 08:09:03;Kenzie;Estou checando os detalhes aqui.;;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;5;2026-02-17 08:10:17;Cliente;Continua sem funcionar. Isso e um absurdo.;Negativo;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;6;2026-02-17 08:10:32;Kenzie;Vou te transferir para um atendente humano, um momento.;;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;7;2026-02-17 08:18:19;Atendente Humano;Oi, sou do time de especialistas, vou cuidar disso.;;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;8;2026-02-17 08:19:46;Cliente;Isso nao resolveu, continua igual. Isso e um absurdo.;Negativo;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;9;2026-02-17 08:22:30;Atendente Humano;Consultando a area responsavel aqui.;;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;10;2026-02-17 08:25:37;Atendente Humano;"Encaminhei para a area de Mesa de Limites; retornaremos em ate 48h.";;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;11;2026-02-17 08:25:56;Cliente;Ok... vou aguardar entao. Isso e um absurdo.;Negativo;texto;False
+CONV-010440;CLI-A0D148482AB5;Correntista Nacional;PT;Alteracao de Limites;12;2026-02-17 08:26:04;Atendente Humano;Qualquer duvida, e so voltar a falar comigo.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;1;2026-02-17 01:59:44;Cliente;Qual e o meu limite atual? Que servico pessimo, decepcionante.;Negativo;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;2;2026-02-17 01:59:59;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Posso mostrar seus limites atuais e registrar um pedido de ajuste.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;3;2026-02-17 02:00:30;Cliente;Certo, qual o proximo passo?;Neutro;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;4;2026-02-17 02:00:54;Kenzie;Certo, deixa eu verificar isso para voce.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;5;2026-02-17 02:02:38;Cliente;E agora, como prosseguimos?;Neutro;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;6;2026-02-17 02:02:52;Kenzie;Ja localizei seu cadastro, um instante.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;7;2026-02-17 02:04:05;Cliente;E agora, como prosseguimos?;Neutro;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;8;2026-02-17 02:04:29;Kenzie;Estou checando os detalhes aqui.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;9;2026-02-17 02:04:56;Cliente;Certo, qual o proximo passo? Meu CPF e [CPF].;Neutro;texto;True
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;10;2026-02-17 02:05:04;Kenzie;Esse caso precisa de um especialista humano, ja vou transferir.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;11;2026-02-17 02:16:34;Atendente Humano;Ola, aqui e o atendimento humano. Assumi seu caso e vou ajudar.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;12;2026-02-17 02:18:27;Cliente;Ainda estou com o mesmo problema. Estou muito insatisfeito com o banco.;Negativo;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;13;2026-02-17 02:22:47;Atendente Humano;Deixa eu checar isso no sistema, um instante.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;14;2026-02-17 02:23:23;Cliente;E agora, como prosseguimos?;Neutro;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;15;2026-02-17 02:24:51;Atendente Humano;Estou analisando o seu caso agora.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;16;2026-02-17 02:27:31;Atendente Humano;Consegui resolver aqui no sistema, tudo certo.;;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;17;2026-02-17 02:28:55;Cliente;Obrigado, deu certo!;Positivo;texto;False
+CONV-012000;CLI-CAE84A516EDF;Correntista Nacional;PT;Alteracao de Limites;18;2026-02-17 02:29:19;Atendente Humano;Fico a disposicao. Tenha um otimo dia!;;texto;False
+CONV-012350;CLI-9CC312D5C27B;CDE;PT;Ruido / Nao-atendimento;1;2026-02-17 16:32:15;Cliente;Deixa pra la, ja resolvi sozinho.;Positivo;texto;False
+CONV-012350;CLI-9CC312D5C27B;CDE;PT;Ruido / Nao-atendimento;2;2026-02-17 16:32:20;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Tudo bem! Estou por aqui se precisar.;;texto;False
+CONV-012525;CLI-E0F59FCFDD0D;CDE;PT;Ruido / Nao-atendimento;1;2026-02-17 18:29:14;Cliente;Ops, chamei sem quererr, desculpe. 🙂;Neutro;texto;False
+CONV-012525;CLI-E0F59FCFDD0D;CDE;PT;Ruido / Nao-atendimento;2;2026-02-17 18:29:32;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Sem problemas! Se precisar de algo, e so chamar.;;texto;False
+CONV-012525;CLI-E0F59FCFDD0D;CDE;PT;Ruido / Nao-atendimento;3;2026-02-17 18:30:25;Cliente;Obrigado! 🙏;Positivo;texto;False
+CONV-015014;CLI-97D0D2C4A17E;CDE;EN;Disparo Ativo;1;2026-02-17 08:00:11;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. We have a special FX rate for you today!;;texto;False
+CONV-015014;CLI-97D0D2C4A17E;CDE;EN;Disparo Ativo;2;2026-02-17 08:00:50;Cliente;I don't want to receive these messages anymore.;Negativo;texto;False
+CONV-015014;CLI-97D0D2C4A17E;CDE;EN;Disparo Ativo;3;2026-02-17 08:01:01;Kenzie;No problem, I'll remove you from our messages. Sorry for the inconvenience.;;texto;False
+CONV-015801;CLI-B4618EE2378B;CDE;EN;Disparo Ativo;1;2026-02-17 08:50:02;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. Your card statement is ready, can I help with anything?;;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;1;2026-02-17 03:19:34;Cliente;how do i request the credit card? this is unacceptable.;Negativo;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;2;2026-02-17 03:19:47;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. How can I help? About your credit card, I can check the bill, due date and limit now.;;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;3;2026-02-17 03:19:57;Kenzie;Sorry, I don't think I understood. Do you want to talk about your credit card?;;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;4;2026-02-17 03:20:48;Cliente;You got it wrong, it's about what I said.;Negativo;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;5;2026-02-17 03:21:08;Kenzie;About your credit card, I can check the bill, due date and limit now.;;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;6;2026-02-17 03:22:21;Cliente;It still doesn't work. Third time I try, losing my patience. 😤;Negativo;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;7;2026-02-17 03:22:46;Kenzie;I found your profile, one moment.;;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;8;2026-02-17 03:23:09;Cliente;[foto anexada] ok, what's the next step?;Neutro;imagem;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;9;2026-02-17 03:23:26;Kenzie;I found your profile, one moment.;;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;10;2026-02-17 03:25:06;Cliente;Ok, what's the next step?;Neutro;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;11;2026-02-17 03:25:27;Kenzie;I found your profile, one moment.;;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;12;2026-02-17 03:27:19;Cliente;ok, whaat's the next step?;Neutro;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;13;2026-02-17 03:27:44;Kenzie;Got the info, just a second.;;texto;False
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;14;2026-02-17 03:28:44;Cliente;Great, thank u! My phone number is [TELEFONE].;Positivo;texto;True
+CONV-015901;CLI-5DA8B11135B3;CDE;EN;Cartao de Credito;15;2026-02-17 03:28:50;Kenzie;Glad to help! Anything else?;;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;1;2026-02-17 01:10:44;Cliente;Preciso aumentar meu limite de transferencia.;Neutro;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;2;2026-02-17 01:11:01;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Posso mostrar seus limites atuais e registrar um pedido de ajuste.;;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;3;2026-02-17 01:12:23;Cliente;Ainda estou com o mesmo problema. Que servico pessimo, decepcionante.;Negativo;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;4;2026-02-17 01:12:34;Kenzie;Certo, deixa eu verificar isso para voce.;;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;5;2026-02-17 01:13:02;Cliente;Entendi, e depois disso?;Neutro;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;6;2026-02-17 01:13:11;Kenzie;Consegui puxar a informacao, so um momento.;;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;7;2026-02-17 01:15:09;Cliente;Entendi, e depois disso?;Neutro;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;8;2026-02-17 01:15:13;Kenzie;Estou checando os detalhes aqui.;;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;9;2026-02-17 01:15:50;Cliente;Ta, obrigado mesmo assim. Isso e um absurdo. Assim vou encerrar minha conta.;Negativo;texto;False
+CONV-016479;CLI-0BFC6F870190;CDE;PT;Alteracao de Limites;10;2026-02-17 01:15:54;Kenzie;Sinto muito por nao resolver por aqui. Estou a disposicao.;;texto;False
+CONV-017678;CLI-071408936A84;CDE;EN;Alteracao de Limites;1;2026-02-17 01:54:29;Cliente;mmy pix limit dropped suddenly.;Neutro;texto;False
+CONV-017678;CLI-071408936A84;CDE;EN;Alteracao de Limites;2;2026-02-17 01:54:40;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. How can I help? I can show your current limits and file an adjustment request.;;texto;False
+CONV-017678;CLI-071408936A84;CDE;EN;Alteracao de Limites;3;2026-02-17 01:55:26;Cliente;that didn't solve it. i'm really frustrated with this. 😤;Negativo;texto;False
+CONV-017678;CLI-071408936A84;CDE;EN;Alteracao de Limites;4;2026-02-17 01:55:49;Kenzie;Sure, let me check that for you.;;texto;False
+CONV-017678;CLI-071408936A84;CDE;EN;Alteracao de Limites;5;2026-02-17 01:56:05;Cliente;I still have the same problem. Third time I try, losing my patience. 😠;Negativo;texto;False
+CONV-017678;CLI-071408936A84;CDE;EN;Alteracao de Limites;6;2026-02-17 01:56:26;Kenzie;I'm checking the details here.;;texto;False
+CONV-017678;CLI-071408936A84;CDE;EN;Alteracao de Limites;7;2026-02-17 01:57:22;Cliente;Ok, what's the next sstep?;Neutro;texto;False
+CONV-017678;CLI-071408936A84;CDE;EN;Alteracao de Limites;8;2026-02-17 01:57:31;Kenzie;Sure, let me check that for you.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;1;2026-02-17 03:07:13;Cliente;como hago una remesa internacional a brasil? 🙂;Neutro;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;2;2026-02-17 03:07:25;Kenzie;Hola! Soy Kenzie, asistente virtual del banco. Como puedo ayudar? Las cotizaciones y tasas estan en la app en Cambio > Cotizaciones, en tiempo real.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;3;2026-02-17 03:07:29;Kenzie;Perdon, creo que no entendi. Quieres hablar de la tarjeta de credito?;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;4;2026-02-17 03:08:12;Cliente;no era eso, mi duda es otra.;Negativo;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;5;2026-02-17 03:08:23;Kenzie;Las cotizaciones y tasas estan en la app en Cambio > Cotizaciones, en tiempo real.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;6;2026-02-17 03:10:19;Cliente;Y ahora como seguimos?;Neutro;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;7;2026-02-17 03:10:33;Kenzie;Claro, dejame verificar eso.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;8;2026-02-17 03:11:19;Cliente;eso no lo resolvio. es la tercera vez que lo intento, pierdo la paciencia. 😤 Mi cuenta es [CONTA].;Negativo;texto;True
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;9;2026-02-17 03:11:44;Kenzie;Estoy revisando los detalles aqui.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;10;2026-02-17 03:13:10;Cliente;entiendo, y despues?;Neutro;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;11;2026-02-17 03:13:34;Kenzie;Ya tengo la informacion, un segundo.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;12;2026-02-17 03:15:19;Cliente;[audio transcrito] Bien, cual es el proximo paso? 🙂;Neutro;audio;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;13;2026-02-17 03:15:26;Kenzie;Estoy revisando los detalles aqui.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;14;2026-02-17 03:16:03;Cliente;Bien,, cual es el proximo paso?;Neutro;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;15;2026-02-17 03:16:16;Kenzie;Este caso necesita un especialista humano, transfiriendo.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;16;2026-02-17 03:21:31;Atendente Humano;Hola, soy del equipo de especialistas, me encargo.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;17;2026-02-17 03:22:44;Cliente;sigue sin funcionar. esto es un absurdo.;Negativo;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;18;2026-02-17 03:23:39;Atendente Humano;Ya verifique parte, un momento mas.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;19;2026-02-17 03:24:59;Cliente;Bien, cual es el proximo paso? 🙂;Neutro;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;20;2026-02-17 03:26:59;Atendente Humano;Ya verifique parte, un momento mas.;;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;21;2026-02-17 03:28:55;Atendente Humano;"Necesita analisis del area de Cambio/Backoffice; abri un ticket.";;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;22;2026-02-17 03:29:33;Cliente;Bien, pero sigo insatisfecho. Estoy muy insaatisfecho con el banco.;Negativo;texto;False
+CONV-018686;CLI-7D4C22B9F2F8;CDE;ES;Cambio;23;2026-02-17 03:30:01;Atendente Humano;Necesitas algo mas?;;texto;False
+CONV-019195;CLI-37CF38A25EA1;CDE;PT;Disparo Ativo;1;2026-02-17 10:23:34;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Sua fatura do cartao fechou, posso ajudar com algo?;;texto;False
+CONV-019195;CLI-37CF38A25EA1;CDE;PT;Disparo Ativo;2;2026-02-17 10:25:06;Cliente;[foto anexada] Descadastra meu numero dessas ofertas.;Negativo;imagem;False
+CONV-019195;CLI-37CF38A25EA1;CDE;PT;Disparo Ativo;3;2026-02-17 10:25:11;Kenzie;Sem problemas, vou remover voce dos disparos. Desculpe o incomodo.;;texto;False
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;1;2026-02-17 02:20:41;Cliente;i've lived abroad for years, is my cpf still valid?;Neutro;texto;False
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;2;2026-02-17 02:20:52;Kenzie;"Hello! I'm Kenzie, the bank's virtual assistant. How can I help? CPF is the Brazilian tax ID; PIX is the instant payment system. I can explain step by step.";;texto;False
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;3;2026-02-17 02:22:20;Cliente;That didn't solve it. Terrible service, very disappointed.;Negativo;texto;False
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;4;2026-02-17 02:22:31;Kenzie;I found your profile, one moment.;;texto;False
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;5;2026-02-17 02:23:56;Cliente;i see, and then? 🙂;Neutro;texto;False
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;6;2026-02-17 02:24:11;Kenzie;Sure, let me check that for you.;;texto;False
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;7;2026-02-17 02:25:47;Cliente;I see, and then? 🙂 My email is [EMAIL].;Neutro;texto;True
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;8;2026-02-17 02:26:01;Kenzie;I'm checking the details here.;;texto;False
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;9;2026-02-17 02:27:01;Cliente;ok, what's the next step?;Neutro;texto;False
+CONV-020441;CLI-B2459EBDD93A;CDE;EN;Termos e Documentacao BR;10;2026-02-17 02:27:05;Kenzie;I'll transfer you to a human agent, one moment.;;texto;False
+CONV-022080;CLI-81AD6700C858;Correntista Nacional;PT;Onboarding - Documentacao;1;2026-02-17 05:37:10;Cliente;Meu comprovante de residencia foi recusado no cadastro.;Neutro;texto;False
+CONV-022080;CLI-81AD6700C858;Correntista Nacional;PT;Onboarding - Documentacao;2;2026-02-17 05:37:14;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Para o cadastro aceitamos documento oficial com foto e comprovante recente. Posso verificar seu envio.;;texto;False
+CONV-022080;CLI-81AD6700C858;Correntista Nacional;PT;Onboarding - Documentacao;3;2026-02-17 05:37:50;Cliente;E agora, como prosseguimos?;Neutro;texto;False
+CONV-022080;CLI-81AD6700C858;Correntista Nacional;PT;Onboarding - Documentacao;4;2026-02-17 05:38:04;Kenzie;Ja localizei seu cadastro, um instante.;;texto;False
+CONV-022080;CLI-81AD6700C858;Correntista Nacional;PT;Onboarding - Documentacao;5;2026-02-17 05:39:18;Cliente;Certo, mas continuo insatisfeito. Isso e um absurdo.;Negativo;texto;False
+CONV-022080;CLI-81AD6700C858;Correntista Nacional;PT;Onboarding - Documentacao;6;2026-02-17 05:39:22;Kenzie;Sinto muito por nao resolver por aqui. Estou a disposicao.;;texto;False
+CONV-022124;CLI-33122F6F5886;CDE;EN;Ruido / Nao-atendimento;1;2026-02-17 17:49:17;Cliente;? 🙂;Neutro;texto;False
+CONV-022124;CLI-33122F6F5886;CDE;EN;Ruido / Nao-atendimento;2;2026-02-17 17:49:27;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. How can I help? All good! I'm here if you need me.;;texto;False
+CONV-023954;CLI-DA52BE2A24B6;CDE;PT;Ruido / Nao-atendimento;1;2026-02-17 18:48:54;Cliente;testando 🙂;Neutro;texto;False
+CONV-023954;CLI-DA52BE2A24B6;CDE;PT;Ruido / Nao-atendimento;2;2026-02-17 18:49:13;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Tudo bem! Estou por aqui se precisar.;;texto;False
+CONV-023954;CLI-DA52BE2A24B6;CDE;PT;Ruido / Nao-atendimento;3;2026-02-17 18:49:44;Cliente;[foto anexada] Obrigado!;Positivo;imagem;False
+CONV-024340;CLI-23975CC718D7;CDE;ES;Ruido / Nao-atendimento;1;2026-02-18 00:23:19;Cliente;Fue un error, ignoralo.;Neutro;texto;False
+CONV-024340;CLI-23975CC718D7;CDE;ES;Ruido / Nao-atendimento;2;2026-02-18 00:23:26;Kenzie;Hola! Soy Kenzie, asistente virtual del banco. Como puedo ayudar? Sin problema! Si necesitas algo, avisame.;;texto;False
+CONV-026493;CLI-7F10D3C262D0;Correntista Nacional;PT;Investimentos CDB;1;2026-02-17 02:39:29;Cliente;Como invisto no CDB pelo app? Que servico pessimo, decepcionante.;Negativo;texto;False
+CONV-026493;CLI-7F10D3C262D0;Correntista Nacional;PT;Investimentos CDB;2;2026-02-17 02:39:49;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Oferecemos CDB Prefixado, Pos-fixado e IPCA. Posso comparar os rendimentos.;;texto;False
+CONV-026493;CLI-7F10D3C262D0;Correntista Nacional;PT;Investimentos CDB;3;2026-02-17 02:40:02;Kenzie;Desculpe, acho que nao entendi. Voce quer falar sobre cartao de credito?;;texto;False
+CONV-026493;CLI-7F10D3C262D0;Correntista Nacional;PT;Investimentos CDB;4;2026-02-17 02:41:09;Cliente;[audio transcrito] Nao, nao e sobre isso. 😠;Negativo;audio;False
+CONV-026493;CLI-7F10D3C262D0;Correntista Nacional;PT;Investimentos CDB;5;2026-02-17 02:41:14;Kenzie;Oferecemos CDB Prefixado, Pos-fixado e IPCA. Posso comparar os rendimentos.;;texto;False
+CONV-026493;CLI-7F10D3C262D0;Correntista Nacional;PT;Investimentos CDB;6;2026-02-17 02:41:50;Cliente;Entendi, e depois disso? Meu telefone e [TELEFONE].;Neutro;texto;True
+CONV-026493;CLI-7F10D3C262D0;Correntista Nacional;PT;Investimentos CDB;7;2026-02-17 02:41:59;Kenzie;Ja localizei seu cadastro, um instante.;;texto;False
+CONV-026493;CLI-7F10D3C262D0;Correntista Nacional;PT;Investimentos CDB;8;2026-02-17 02:42:17;Cliente;[audio transcrito] certo, mas continuo insatisfeito. estou muito frustrado com isso. 😞;Negativo;audio;False
+CONV-026493;CLI-7F10D3C262D0;Correntista Nacional;PT;Investimentos CDB;9;2026-02-17 02:42:23;Kenzie;Sinto muito por nao resolver por aqui. Estou a disposicao.;;texto;False
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;1;2026-02-17 01:37:44;Cliente;my pix was blocked without notice!;Neutro;texto;False
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;2;2026-02-17 01:37:57;Kenzie;Hello! I'm Kenzie, the bank's virtual assistant. How can I help? Sorry for the trouble. Blocks happen for security. I'm checking it now.;;texto;False
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;3;2026-02-17 01:39:31;Cliente;And how do we proceed now?;Neutro;texto;False
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;4;2026-02-17 01:39:36;Kenzie;Sure, let me check that for you.;;texto;False
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;5;2026-02-17 01:40:21;Cliente;[foto anexada] I still have the same problem.  I'm very unhappy with the bank. My phone number is [TELEFONE].;Negativo;imagem;True
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;6;2026-02-17 01:40:30;Kenzie;I found your profile, one moment.;;texto;False
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;7;2026-02-17 01:41:02;Cliente;Ok, what's the next steep?;Neutro;texto;False
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;8;2026-02-17 01:41:26;Kenzie;I'm checking the details here.;;texto;False
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;9;2026-02-17 01:42:42;Cliente;i see, and then? My tax ID is [CPF].;Neutro;texto;True
+CONV-032688;CLI-BB9EDE6CE634;CDE;EN;Bloqueio TED/PIX;10;2026-02-17 01:42:51;Kenzie;I found your profile, one moment.;;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;1;2026-02-17 03:10:55;Cliente;[audio transcrito] What is CPF and why do I need it?;Neutro;audio;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;2;2026-02-17 03:11:06;Kenzie;"Hello! I'm Kenzie, the bank's virtual assistant. How can I help? CPF is the Brazilian tax ID; PIX is the instant payment system. I can explain step by step.";;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;3;2026-02-17 03:11:49;Cliente;And how do we proceed now?;Neutro;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;4;2026-02-17 03:11:56;Kenzie;I found your profile, one moment.;;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;5;2026-02-17 03:13:02;Cliente;It still doesn't work. This is unacceptable.;Negativo;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;6;2026-02-17 03:13:09;Kenzie;I'll transfer you to a human agent, one moment.;;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;7;2026-02-17 03:18:20;Atendente Humano;Hello, this is human support. I've taken over your case.;;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;8;2026-02-17 03:19:31;Cliente;[audio transcrito] I see, and then?;Neutro;audio;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;9;2026-02-17 03:21:19;Atendente Humano;I've checked part of it, one more moment.;;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;10;2026-02-17 03:22:07;Cliente;I see, and then? My email is [EMAIL].;Neutro;texto;True
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;11;2026-02-17 03:22:43;Atendente Humano;I've checked part of it, one more moment.;;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;12;2026-02-17 03:23:48;Cliente;And how do we proceed now? My email is [EMAIL].;Neutro;texto;True
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;13;2026-02-17 03:27:15;Atendente Humano;Let me check that in the system, one moment.;;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;14;2026-02-17 03:27:46;Atendente Humano;I've solved it in the system, all set.;;texto;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;15;2026-02-17 03:29:11;Cliente;[audio transcrito] Great, thank you!;Positivo;audio;False
+CONV-033240;CLI-03012E99CD02;CDE;EN;Termos e Documentacao BR;16;2026-02-17 03:29:14;Atendente Humano;I'm at your disposal. Have a great day!;;texto;False
+CONV-034194;CLI-7AD91D60356A;CDE;PT;Ruido / Nao-atendimento;1;2026-02-17 14:53:08;Cliente;Ja deu certo, obrigado!;Positivo;texto;False
+CONV-034194;CLI-7AD91D60356A;CDE;PT;Ruido / Nao-atendimento;2;2026-02-17 14:53:20;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Tudo bem! Estou por aqui se precisar.;;texto;False
+CONV-035559;CLI-1153A6E4B857;CDE;PT;Disparo Ativo;1;2026-02-17 08:42:15;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Lembrete: atualize seu cadastro para manter sua conta ativa.;;texto;False
+CONV-035559;CLI-1153A6E4B857;CDE;PT;Disparo Ativo;2;2026-02-17 08:43:00;Cliente;nao quero mais receber essas mensagens. 😠;Negativo;texto;False
+CONV-035559;CLI-1153A6E4B857;CDE;PT;Disparo Ativo;3;2026-02-17 08:43:16;Kenzie;Sem problemas, vou remover voce dos disparos. Desculpe o incomodo.;;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;1;2026-02-17 08:08:59;Cliente;Qual a diferenca entre CDB prefixado e pos-fixado?;Neutro;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;2;2026-02-17 08:09:02;Kenzie;Ola! Sou a Kenzie, assistente virtual do banco. Como posso ajudar? Oferecemos CDB Prefixado, Pos-fixado e IPCA. Posso comparar os rendimentos.;;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;3;2026-02-17 08:10:47;Cliente;E agora, como prosseguimos?;Neutro;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;4;2026-02-17 08:11:09;Kenzie;Estou checando os detalhes aqui.;;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;5;2026-02-17 08:12:14;Cliente;Ainda estou com o mesmo problema. Que servico pessimo, decepcionante. Minha conta e [CONTA].;Negativo;texto;True
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;6;2026-02-17 08:12:19;Kenzie;Consegui puxar a informacao, so um momento.;;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;7;2026-02-17 08:12:41;Cliente;E agora, como prosseguimos?;Neutro;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;8;2026-02-17 08:12:52;Kenzie;Consegui puxar a informacao, so um momento.;;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;9;2026-02-17 08:14:34;Cliente;Isso nao resolveu, continua igual. Estou muito insatisfeito com o banco.;Negativo;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;10;2026-02-17 08:14:42;Kenzie;Esse caso precisa de um especialista humano, ja vou transferir.;;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;11;2026-02-17 08:22:46;Atendente Humano;Ola, aqui e o atendimento humano. Assumi seu caso e vou ajudar.;;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;12;2026-02-17 08:23:18;Cliente;Isso nao resolveu, continua igual. Preciso disso resolvido com urgencia.;Negativo;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;13;2026-02-17 08:24:25;Atendente Humano;Estou analisando o seu caso agora.;;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;14;2026-02-17 08:27:16;Atendente Humano;"Precisa de analise da area de Investimentos; abri um chamado.";;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;15;2026-02-17 08:28:18;Cliente;Ta, obrigado mesmo assim. Ja e a terceira vez que tento, perdendo a paciencia.;Negativo;texto;False
+CONV-035881;CLI-C77F688E557F;Correntista Nacional;PT;Investimentos CDB;16;2026-02-17 08:28:25;Atendente Humano;Precisa de mais alguma coisa?;;texto;False
