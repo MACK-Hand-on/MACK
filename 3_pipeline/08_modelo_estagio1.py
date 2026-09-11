@@ -26,7 +26,12 @@ As aberturas de conversa da base sintetica saem de conjuntos fixos por
 categoria, sem sobreposicao entre elas. Isso da a este estagio um teto de
 acuracia de 100% - o modelo nao tem ambiguidade nenhuma para resolver.
 O numero alto NAO e resultado: e propriedade do gerador.
-O resultado do projeto e o AUC do estagio 2 (script 09).
+
+Por isso este estagio foi DESPROMOVIDO a diagnostico da base. Ele nao entra
+na apresentacao como resultado do modelo - entra como a evidencia que nos
+levou a trocar o alvo do projeto. O modelo que responde pelo projeto e o
+score de risco de nao-resolucao (script 09), que decide na abertura se a
+Kenzie deve tentar resolver ou escalar direto para um humano.
 """
 
 import sys
@@ -238,8 +243,23 @@ print("    estagio1_predicoes_teste.csv      entrada do estagio 2")
 print("    estagio1_metricas.txt             metricas para o relatorio")
 print()
 print("  LEITURA HONESTA DESTE RESULTADO:")
-print("  A acuracia alta nao mede aprendizado - mede que as aberturas da base")
-print("  sintetica nao tem ambiguidade entre categorias. O teto era conhecido")
-print("  ANTES do treino, e por isso o numero pode ser lido com honestidade.")
-print("  O resultado do projeto e o AUC do estagio 2, contra o teto de 0,750.")
+print()
+print("  Este numero NAO e um resultado do modelo. Ele mede que as aberturas")
+print("  da base sintetica nao tem ambiguidade entre categorias - e uma medida")
+print("  da BASE, nao do aprendizado. O teto de 100% era conhecido ANTES do")
+print("  treino, e e por isso que o numero pode ser lido com honestidade em")
+print("  vez de comemorado.")
+print()
+print("  A regra que fica: quando o modelo acerta quase tudo, desconfie da")
+print("  variavel em vez de comemorar. Acerto alto demais e sintoma, nao trofeu.")
+print()
+print("  O unico erro (Operacoes PJ, 1 caso em 60) e o segmento com 0,6% da")
+print("  base. Um 100,00% cravado indicaria tabela de consulta; um erro isolado")
+print("  no segmento mais raro indica que o modelo generaliza.")
+print()
+print("  COMO USAR ISTO NA APRESENTACAO:")
+print("  Como diagnostico da base, nao como resultado. A frase e: 'medimos e")
+print("  descobrimos que as aberturas sao deterministicas; foi por isso que o")
+print("  alvo do projeto passou a ser outro'. O modelo que responde pelo")
+print("  projeto e o score de risco de nao-resolucao - script 09.")
 print()

@@ -1,0 +1,456 @@
+<title>Kenzie 360 ao Vivo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#F4F6F9; --surface:#FFFFFF; --ink:#141D33; --body:#29334C;
+    --muted:#57617A; --rule:#DAE0EA; --accent:#2B5A8A; --accent-soft:#E5EDF6;
+    --baixo:#2A6549; --baixo-soft:#E6F0EA;
+    --medio:#94571F; --medio-soft:#F7EDE2;
+    --alto:#9B3226;  --alto-soft:#F7E7E4;
+    --chat:#E7EEF4;
+    --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+    --sans:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"IBM Plex Mono","SF Mono",Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0F1218; --surface:#171B24; --ink:#E8EBF1; --body:#C5CBD8;
+      --muted:#919AAB; --rule:#282E3A; --accent:#86ADD9; --accent-soft:#1A2330;
+      --baixo:#79B694; --baixo-soft:#16241D;
+      --medio:#D69C68; --medio-soft:#2A2017;
+      --alto:#E08C7C;  --alto-soft:#2B1B18;
+      --chat:#1E2531;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0F1218; --surface:#171B24; --ink:#E8EBF1; --body:#C5CBD8;
+    --muted:#919AAB; --rule:#282E3A; --accent:#86ADD9; --accent-soft:#1A2330;
+    --baixo:#79B694; --baixo-soft:#16241D;
+    --medio:#D69C68; --medio-soft:#2A2017;
+    --alto:#E08C7C;  --alto-soft:#2B1B18;
+    --chat:#1E2531;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--body);font-family:var(--sans);
+       font-size:16px;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:34px 22px 80px}
+
+  header{border-bottom:2px solid var(--ink);padding-bottom:16px;margin-bottom:24px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+           color:var(--muted);margin:0 0 8px}
+  h1{font-family:var(--serif);font-weight:700;font-size:32px;line-height:1.1;color:var(--ink);
+     margin:0 0 10px;letter-spacing:-.012em}
+  .sub{margin:0;font-size:15px;color:var(--muted);max-width:64ch}
+
+  .palco{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  .painel{background:var(--surface);border:1px solid var(--rule)}
+  .painel > .cab{padding:13px 18px;border-bottom:1px solid var(--rule);
+                 font-family:var(--mono);font-size:10.6px;letter-spacing:.1em;
+                 text-transform:uppercase;color:var(--muted)}
+  .corpo{padding:18px}
+
+  /* ---- coluna da conversa ---- */
+  .fluxo{display:flex;flex-direction:column;gap:11px}
+  .bolha{background:var(--chat);padding:10px 13px;font-size:14.4px;color:var(--ink);
+         max-width:88%;border-radius:3px 12px 12px 12px;line-height:1.5}
+  .bolha .quem{font-family:var(--mono);font-size:9.8px;letter-spacing:.09em;text-transform:uppercase;
+               color:var(--muted);display:block;margin:0 0 3px}
+  .escolha{align-self:flex-end;background:var(--accent);color:#fff;
+           border-radius:12px 3px 12px 12px;max-width:88%;padding:9px 13px;font-size:14.4px}
+  .botoes{display:flex;flex-wrap:wrap;gap:7px;margin:3px 0 2px}
+  .botoes button{font-family:var(--sans);font-size:13.4px;padding:7px 12px;cursor:pointer;
+                 background:var(--surface);color:var(--accent);border:1px solid var(--accent);
+                 border-radius:16px;line-height:1.3}
+  .botoes button:hover{background:var(--accent-soft)}
+  .botoes button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .campos{display:grid;grid-template-columns:1fr 1fr;gap:11px 13px;margin-top:4px}
+  .campo{display:flex;flex-direction:column;gap:4px}
+  .campo label{font-family:var(--mono);font-size:9.8px;letter-spacing:.09em;text-transform:uppercase;
+               color:var(--muted)}
+  .campo select,.campo input[type=number]{font-family:var(--sans);font-size:13.6px;padding:6px 8px;
+        background:var(--ground);color:var(--ink);border:1px solid var(--rule);border-radius:3px}
+  .campo select:focus-visible,.campo input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+  .campo.larga{grid-column:1 / -1}
+  .linhatop{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 12px}
+  .linhatop h3{margin:0;font-size:13.6px;font-weight:600;color:var(--ink)}
+  .reinicia{font-family:var(--sans);font-size:12.4px;background:none;border:none;color:var(--accent);
+            cursor:pointer;padding:0;text-decoration:underline}
+
+  /* ---- coluna do score ---- */
+  .nota{display:flex;align-items:baseline;gap:12px;margin:0 0 4px}
+  .nota .v{font-family:var(--serif);font-size:52px;font-weight:700;line-height:1;
+           color:var(--ink);font-variant-numeric:tabular-nums}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+        padding:5px 11px;border-radius:2px;font-weight:600}
+  .chip.b{background:var(--baixo-soft);color:var(--baixo)}
+  .chip.m{background:var(--medio-soft);color:var(--medio)}
+  .chip.a{background:var(--alto-soft);color:var(--alto)}
+  .legenda{font-size:13.4px;color:var(--muted);margin:0 0 16px}
+
+  .escala{position:relative;height:34px;margin:0 0 24px}
+  .trilha{position:absolute;left:0;right:0;top:10px;height:12px;display:flex}
+  .trilha i{display:block;height:100%}
+  .trilha .zb{background:var(--baixo-soft);width:65%}
+  .trilha .zm{background:var(--medio-soft);width:15%}
+  .trilha .za{background:var(--alto-soft);width:20%}
+  .agulha{position:absolute;top:3px;width:3px;height:26px;background:var(--ink);
+          transition:left .25s ease}
+  .marcas{position:absolute;top:26px;left:0;right:0;height:14px;
+          font-family:var(--mono);font-size:10.4px;color:var(--muted)}
+  .marcas span{position:absolute;transform:translateX(-50%)}
+
+  .acao{padding:13px 15px;border-left:3px solid var(--accent);background:var(--accent-soft);
+        font-size:14.6px;color:var(--ink);margin:0 0 20px}
+  .acao b{display:block;font-size:15.4px;margin:0 0 3px}
+  .acao.b{border-color:var(--baixo);background:var(--baixo-soft)}
+  .acao.m{border-color:var(--medio);background:var(--medio-soft)}
+  .acao.a{border-color:var(--alto);background:var(--alto-soft)}
+
+  .rotulo{font-family:var(--mono);font-size:10.4px;letter-spacing:.1em;text-transform:uppercase;
+          color:var(--muted);margin:0 0 10px}
+  .peso{display:grid;grid-template-columns:1fr 62px;column-gap:10px;align-items:center;
+        font-size:13.6px;margin:0 0 6px}
+  .peso .nm{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .peso .br{grid-column:1 / -1;height:5px;background:var(--rule);position:relative;margin:1px 0 8px}
+  .peso .br i{position:absolute;top:0;bottom:0;left:50%;background:var(--accent)}
+  .peso .br i.neg{background:var(--baixo)}
+  .peso .vl{font-family:var(--mono);font-size:12.6px;text-align:right;
+            font-variant-numeric:tabular-nums;color:var(--muted)}
+  .zero{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--muted);opacity:.5}
+
+  /* ---- experimento ---- */
+  .exp{margin-top:34px}
+  .exp h2{font-family:var(--serif);font-size:21px;font-weight:600;color:var(--ink);margin:0 0 8px;
+          padding-bottom:8px;border-bottom:1px solid var(--rule)}
+  .exp p{font-size:15.2px;margin:0 0 14px}
+  .degraus{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--rule);
+           border:1px solid var(--rule);margin:0 0 12px}
+  .degraus > div{background:var(--surface);padding:12px 8px;text-align:center}
+  .degraus .dl{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+               color:var(--muted);margin:0 0 7px;line-height:1.3;min-height:26px}
+  .degraus .dv{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1;margin:0 0 7px;
+               font-variant-numeric:tabular-nums}
+  .degraus .df{font-family:var(--mono);font-size:9.6px;letter-spacing:.08em;text-transform:uppercase;
+               padding:3px 0;border-radius:2px}
+  .df.b{background:var(--baixo-soft);color:var(--baixo)}
+  .df.m{background:var(--medio-soft);color:var(--medio)}
+  .df.a{background:var(--alto-soft);color:var(--alto)}
+  .dv.b{color:var(--baixo)} .dv.m{color:var(--medio)} .dv.a{color:var(--alto)}
+  .tabelabox{overflow-x:auto}
+
+  .rodape{margin-top:34px;padding-top:16px;border-top:1px solid var(--rule);
+          font-size:13.4px;color:var(--muted)}
+  .rodape b{color:var(--ink)}
+
+  @media (max-width:860px){
+    .palco{grid-template-columns:1fr}
+    .degraus{grid-template-columns:repeat(4,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){ .agulha{transition:none} }
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Kenzie 360 &middot; MBA Engenharia de Dados, Mackenzie &middot; Sprint 4</p>
+  <h1>Kenzie 360 ao vivo</h1>
+  <p class="sub">O modelo de risco rodando de verdade. Os 49 coeficientes abaixo são os do
+  modelo treinado — não há aproximação nem número inventado nesta página. Navegue o menu
+  como um cliente faria e veja a nota se formar.</p>
+</header>
+
+<div class="palco">
+
+  <div class="painel">
+    <p class="cab">A conversa &mdash; como o cliente vê</p>
+    <div class="corpo">
+      <div class="fluxo" id="fluxo"></div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--rule)">
+        <div class="linhatop">
+          <h3>Quem é o cliente</h3>
+          <button class="reinicia" id="reinicia" type="button">recomeçar a conversa</button>
+        </div>
+        <div class="campos" id="campos"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="painel">
+    <p class="cab">A camada Kenzie 360 &mdash; o que o banco vê</p>
+    <div class="corpo">
+      <div class="nota"><span class="v" id="notaV">—</span><span class="chip" id="notaC">aguardando</span></div>
+      <p class="legenda" id="notaL">Escolha um assunto no menu ao lado para o modelo pontuar a conversa.</p>
+
+      <div class="escala">
+        <div class="trilha"><i class="zb"></i><i class="zm"></i><i class="za"></i></div>
+        <div class="agulha" id="agulha" style="left:0"></div>
+        <div class="marcas">
+          <span style="left:0">0,00</span><span style="left:65%">0,65</span>
+          <span style="left:80%">0,80</span><span style="left:100%">1,00</span>
+        </div>
+      </div>
+
+      <div class="acao" id="acao"><b>Sem decisão</b>A nota só existe depois que o cliente declara o assunto.</div>
+
+      <p class="rotulo">O que formou a nota &mdash; em log-odds</p>
+      <div id="pesos"></div>
+    </div>
+  </div>
+
+</div>
+
+<section class="exp">
+  <h2>O experimento: o histórico do cliente pesa?</h2>
+  <p>Mesmo cliente, mesmo assunto, mesmo horário. Só muda quantas vezes ele já voltou.
+  Cada valor abaixo sai do modelo real, no clique — nada está pré-escrito.</p>
+  <div class="degraus" id="degraus"></div>
+  <p class="legenda" id="expLeg">Escolha um assunto ao lado para rodar a sequência.</p>
+</section>
+
+<p class="rodape">
+  <b>O que esta página é:</b> a regressão logística de 13 variáveis do projeto, com os
+  49 coeficientes e o intercepto (0,1877) embutidos. A conta é
+  <span style="font-family:var(--mono)">nota = 1 / (1 + e<sup>−z</sup>)</span>, com
+  <span style="font-family:var(--mono)">z</span> somando o intercepto e os coeficientes das
+  características escolhidas. É exatamente o que roda no notebook — em 3 KB de JavaScript,
+  sem servidor.<br><br>
+  <b>O que esta página não é:</b> uma medição do bot em produção. A base é sintética, por
+  decisão de LGPD. O produto é derivado do assunto porque é assim que a base o define.
+  Faixas operacionais: Baixo &lt; 0,65 &middot; Médio 0,65–0,80 &middot; Alto &gt; 0,80.
+</p>
+
+</div>
+
+<script>
+const MODELO = {"intercepto":0.18774807447552436,"coef":{"segmento_cliente_CDE":-0.005587,"segmento_cliente_Correntista Nacional":0.05761,"segmento_cliente_PJ":0.133013,"arquetipo_Alta Renda/Private":-0.011234,"arquetipo_Empresario PJ":0.133013,"arquetipo_Expat Code-Switcher":0.026303,"arquetipo_Expat Digital":0.02173,"arquetipo_Formal/Premium":-0.085401,"arquetipo_Nacional Jovem Digital":-0.005329,"arquetipo_Nacional Pratico":0.001131,"arquetipo_Nao Residente Senior":0.069081,"arquetipo_Risco de Churn":0.035742,"perfil_tecnologico_alto":0.042703,"perfil_tecnologico_baixo":0.069081,"perfil_tecnologico_medio":0.073252,"faixa_etaria_adulto":0.073252,"faixa_etaria_idoso":0.069081,"faixa_etaria_jovem":0.042703,"idioma_EN":0.068288,"idioma_ES":0.042506,"idioma_PT":0.074241,"origem_Ativo":0.046678,"origem_Receptivo":0.138358,"canal_entrada_WhatsApp":0.185036,"categoria_assunto_Alteracao de Limites":0.091468,"categoria_assunto_Bloqueio TED/PIX":0.936469,"categoria_assunto_Cambio":0.23722,"categoria_assunto_Cartao de Credito":-0.03063,"categoria_assunto_Investimentos CDB":-0.333333,"categoria_assunto_Onboarding - Documentacao":0.714771,"categoria_assunto_Operacoes PJ - Folha e Pagamentos":0.024623,"categoria_assunto_Primeiro Acesso":-0.14554,"categoria_assunto_Saldo e Extrato":-1.375346,"categoria_assunto_Termos e Documentacao BR":0.065333,"produto_relacionado_CDB":-0.333333,"produto_relacionado_Cambio":0.23722,"produto_relacionado_Cartao de Credito":-0.03063,"produto_relacionado_Conta Corrente":0.287156,"produto_relacionado_Conta PJ":0.024623,"reabertura_false":-0.095743,"reabertura_true":0.280779,"contatos_faixa_0":-0.374805,"contatos_faixa_1":-0.259212,"contatos_faixa_2":-0.152053,"contatos_faixa_3-4":0.069126,"contatos_faixa_5-8":0.491119,"contatos_faixa_9+":0.410861,"hora":0.008685,"dia_semana":-0.009542},"categorias":{"segmento_cliente":["CDE","Correntista Nacional","PJ"],"arquetipo":["Alta Renda/Private","Empresario PJ","Expat Code-Switcher","Expat Digital","Formal/Premium","Nacional Jovem Digital","Nacional Pratico","Nao Residente Senior","Risco de Churn"],"perfil_tecnologico":["alto","baixo","medio"],"faixa_etaria":["adulto","idoso","jovem"],"idioma":["EN","ES","PT"],"origem":["Ativo","Receptivo"],"canal_entrada":["WhatsApp"],"categoria_assunto":["Alteracao de Limites","Bloqueio TED/PIX","Cambio","Cartao de Credito","Investimentos CDB","Onboarding - Documentacao","Operacoes PJ - Folha e Pagamentos","Primeiro Acesso","Saldo e Extrato","Termos e Documentacao BR"],"produto_relacionado":["CDB","Cambio","Cartao de Credito","Conta Corrente","Conta PJ"],"reabertura":["false","true"],"contatos_faixa":["0","1","2","3-4","5-8","9+"]}};
+
+const PRODUTO = {
+  "Onboarding - Documentacao":"Conta Corrente", "Termos e Documentacao BR":"Conta Corrente",
+  "Cambio":"Cambio", "Primeiro Acesso":"Conta Corrente", "Bloqueio TED/PIX":"Conta Corrente",
+  "Alteracao de Limites":"Conta Corrente", "Cartao de Credito":"Cartao de Credito",
+  "Investimentos CDB":"CDB", "Saldo e Extrato":"Conta Corrente",
+  "Operacoes PJ - Folha e Pagamentos":"Conta PJ"
+};
+const ROTULO = {
+  "Onboarding - Documentacao":"Onboarding e documentação", "Termos e Documentacao BR":"Termos e documentação BR",
+  "Cambio":"Câmbio", "Primeiro Acesso":"Primeiro acesso", "Bloqueio TED/PIX":"Bloqueio de TED ou PIX",
+  "Alteracao de Limites":"Alteração de limites", "Cartao de Credito":"Cartão de crédito",
+  "Investimentos CDB":"Investimentos em CDB", "Saldo e Extrato":"Saldo e extrato",
+  "Operacoes PJ - Folha e Pagamentos":"Operações PJ"
+};
+const NOME_VAR = {
+  segmento_cliente:"Segmento", arquetipo:"Arquétipo", perfil_tecnologico:"Perfil tecnológico",
+  faixa_etaria:"Faixa etária", idioma:"Idioma", origem:"Origem do contato",
+  canal_entrada:"Canal", categoria_assunto:"Assunto", produto_relacionado:"Produto",
+  reabertura:"Reabertura", contatos_faixa:"Contatos prévios", hora:"Hora do dia",
+  dia_semana:"Dia da semana"
+};
+const AMIGAVEL = {
+  "false":"não", "true":"sim", "alto":"alto", "medio":"médio", "baixo":"baixo",
+  "adulto":"adulto", "idoso":"idoso", "jovem":"jovem", "Ativo":"disparo do banco",
+  "Receptivo":"cliente procurou", "CDE":"CDE", "PJ":"PJ",
+  "Correntista Nacional":"correntista nacional"
+};
+const DIAS = ["segunda","terça","quarta","quinta","sexta","sábado","domingo"];
+const SEG_MENU = {"CDE":"Conta de Domiciliado no Exterior","Correntista Nacional":"Conta no Brasil","PJ":"Conta empresarial"};
+
+let estado = {
+  segmento_cliente:null, categoria_assunto:null,
+  arquetipo:"Expat Digital", perfil_tecnologico:"medio", faixa_etaria:"adulto",
+  idioma:"PT", origem:"Receptivo", canal_entrada:"WhatsApp",
+  reabertura:"false", contatos_faixa:"0", hora:14, dia_semana:2
+};
+let passo = 0;
+
+function termos(e){
+  const t = [["(intercepto)", MODELO.intercepto]];
+  for (const c of ["segmento_cliente","arquetipo","perfil_tecnologico","faixa_etaria","idioma",
+                   "origem","canal_entrada","categoria_assunto","produto_relacionado",
+                   "reabertura","contatos_faixa"]){
+    const v = c === "produto_relacionado" ? PRODUTO[e.categoria_assunto] : e[c];
+    if (v == null) continue;
+    const k = c + "_" + v, co = MODELO.coef[k];
+    if (co !== undefined) t.push([NOME_VAR[c] + ": " + (AMIGAVEL[v] || v), co]);
+  }
+  t.push([NOME_VAR.hora + ": " + e.hora + "h", MODELO.coef.hora * e.hora]);
+  t.push([NOME_VAR.dia_semana + ": " + DIAS[e.dia_semana], MODELO.coef.dia_semana * e.dia_semana]);
+  return t;
+}
+const pontua = e => 1 / (1 + Math.exp(-termos(e).reduce((s,t) => s + t[1], 0)));
+const faixa  = p => p < 0.65 ? ["b","Baixo"] : (p < 0.80 ? ["m","Médio"] : ["a","Alto"]);
+const fmt    = n => n.toFixed(3).replace(".", ",");
+
+const ACOES = {
+  b:["Deixar com a Kenzie","O bot tem boa chance de resolver sozinho. A conversa segue no fluxo automático e só escala se o cliente pedir."],
+  m:["Fila de observação","Entra na fila com prioridade normal. Se a operação tiver folga na hora, sobe para um atendente antes de o cliente insistir."],
+  a:["Encaminhar agora","Alta probabilidade de a Kenzie não resolver. Vai direto para a fila humana, sem gastar os treze minutos de menu."]
+};
+
+function render(){
+  const pronto = estado.categoria_assunto !== null;
+  const nV = document.getElementById("notaV"), nC = document.getElementById("notaC");
+  const nL = document.getElementById("notaL"), ac = document.getElementById("acao");
+  const ag = document.getElementById("agulha"), pz = document.getElementById("pesos");
+
+  if (!pronto){
+    nV.textContent = "—"; nC.className = "chip"; nC.textContent = "aguardando";
+    nL.textContent = "Escolha um assunto no menu ao lado para o modelo pontuar a conversa.";
+    ag.style.left = "0"; ac.className = "acao";
+    ac.innerHTML = "<b>Sem decisão</b>A nota só existe depois que o cliente declara o assunto.";
+    pz.innerHTML = ""; return;
+  }
+  const p = pontua(estado), [cl, nome] = faixa(p);
+  nV.textContent = fmt(p);
+  nC.className = "chip " + cl; nC.textContent = "faixa " + nome;
+  nL.textContent = "Probabilidade de a Kenzie não resolver esta conversa sozinha.";
+  ag.style.left = (p * 100) + "%";
+  ac.className = "acao " + cl;
+  ac.innerHTML = "<b>" + ACOES[cl][0] + "</b>" + ACOES[cl][1];
+
+  const t = termos(estado).slice().sort((a,b) => Math.abs(b[1]) - Math.abs(a[1])).slice(0, 8);
+  const mx = Math.max(...t.map(x => Math.abs(x[1])), 0.1);
+  pz.innerHTML = t.map(([n, v]) => {
+    const w = (Math.abs(v) / mx) * 50;
+    const est = v >= 0 ? "left:50%;width:" + w + "%" : "left:" + (50 - w) + "%;width:" + w + "%";
+    return '<div class="peso"><span class="nm">' + n + '</span>' +
+           '<span class="vl">' + (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(2).replace(".", ",") + '</span>' +
+           '<span class="br"><i class="' + (v < 0 ? "neg" : "") + '" style="' + est + '"></i>' +
+           '<i class="zero"></i></span></div>';
+  }).join("");
+  degraus();
+}
+
+function degraus(){
+  const el = document.getElementById("degraus");
+  if (estado.categoria_assunto === null){ el.innerHTML = ""; return; }
+  const casos = [["0","1º contato"],["1","2º"],["2","3º"],["3-4","4º ao 5º"],
+                 ["5-8","6º ao 9º"],["9+","10º ou mais"]];
+  let html = casos.map(([f, rot]) => {
+    const p = pontua(Object.assign({}, estado, {contatos_faixa: f, reabertura: "false"}));
+    const [cl, nm] = faixa(p);
+    return '<div><p class="dl">' + rot + '</p><p class="dv ' + cl + '">' + fmt(p) +
+           '</p><p class="df ' + cl + '">' + nm + '</p></div>';
+  }).join("");
+  const pr = pontua(Object.assign({}, estado, {contatos_faixa: "3-4", reabertura: "true"}));
+  const [cr, nr] = faixa(pr);
+  html += '<div><p class="dl">4º&nbsp;ao&nbsp;5º<br>+ reabertura</p><p class="dv ' + cr + '">' +
+          fmt(pr) + '</p><p class="df ' + cr + '">' + nr + '</p></div>';
+  el.innerHTML = html;
+
+  const p0 = pontua(Object.assign({}, estado, {contatos_faixa: "0", reabertura: "false"}));
+  const p9 = pontua(Object.assign({}, estado, {contatos_faixa: "5-8", reabertura: "false"}));
+  document.getElementById("expLeg").innerHTML =
+    "Em <b>" + ROTULO[estado.categoria_assunto] + "</b>, a mesma pessoa sai de <b>" + fmt(p0) +
+    "</b> no primeiro contato para <b>" + fmt(p9) + "</b> na sexta volta — " +
+    ((p9 - p0) * 100).toFixed(1).replace(".", ",") + " pontos, sem que nada além do histórico mude.";
+}
+
+/* ---------- o menu, como o cliente vê ---------- */
+function bolha(quem, txt){
+  const d = document.createElement("div");
+  d.className = "bolha";
+  d.innerHTML = '<span class="quem">' + quem + '</span>' + txt;
+  return d;
+}
+function escolha(txt){
+  const d = document.createElement("div");
+  d.className = "bolha escolha"; d.textContent = txt; return d;
+}
+function menu(opcoes, aoClicar){
+  const d = document.createElement("div");
+  d.className = "botoes";
+  opcoes.forEach(([val, rot]) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = rot;
+    b.addEventListener("click", () => aoClicar(val, rot));
+    d.appendChild(b);
+  });
+  return d;
+}
+function conversa(){
+  const f = document.getElementById("fluxo");
+  f.innerHTML = "";
+  f.appendChild(bolha("Kenzie", "Olá! Sou a Kenzie, assistente do Banco Rendimento. Para começar, qual conta você tem com a gente?"));
+  if (passo === 0){
+    f.appendChild(menu(Object.entries(SEG_MENU), (v, r) => {
+      estado.segmento_cliente = v;
+      estado.arquetipo = v === "PJ" ? "Empresario PJ" : (v === "CDE" ? "Expat Digital" : "Nacional Pratico");
+      passo = 1; conversa(); campos(); render();
+    }));
+    return;
+  }
+  f.appendChild(escolha(SEG_MENU[estado.segmento_cliente]));
+  f.appendChild(bolha("Kenzie", "Perfeito. Sobre o que você quer falar hoje?"));
+  if (passo === 1){
+    f.appendChild(menu(Object.keys(PRODUTO).map(k => [k, ROTULO[k]]), (v) => {
+      estado.categoria_assunto = v; passo = 2; conversa(); campos(); render();
+    }));
+    return;
+  }
+  f.appendChild(escolha(ROTULO[estado.categoria_assunto]));
+  f.appendChild(bolha("Kenzie", "Certo. Vou verificar isso para você, só um instante…"));
+  f.appendChild(bolha("Kenzie 360",
+    "<b>Neste ponto a camada já pontuou a conversa.</b> Nenhuma mensagem de texto foi lida — " +
+    "só os botões que o cliente apertou e o que o banco já sabia sobre ele."));
+}
+
+/* ---------- os controles ---------- */
+const CAMPOS = [
+  ["arquetipo","Arquétipo"], ["perfil_tecnologico","Perfil tecnológico"],
+  ["faixa_etaria","Faixa etária"], ["idioma","Idioma"], ["origem","Origem do contato"],
+  ["contatos_faixa","Contatos prévios"], ["reabertura","É reabertura?"]
+];
+function campos(){
+  const c = document.getElementById("campos");
+  c.innerHTML = "";
+  CAMPOS.forEach(([k, rot]) => {
+    const d = document.createElement("div"); d.className = "campo";
+    const l = document.createElement("label"); l.textContent = rot; l.htmlFor = "f_" + k;
+    const s = document.createElement("select"); s.id = "f_" + k;
+    MODELO.categorias[k].forEach(v => {
+      const o = document.createElement("option");
+      o.value = v; o.textContent = AMIGAVEL[v] || v;
+      if (v === estado[k]) o.selected = true;
+      s.appendChild(o);
+    });
+    s.addEventListener("change", e => { estado[k] = e.target.value; render(); });
+    d.appendChild(l); d.appendChild(s); c.appendChild(d);
+  });
+  const dh = document.createElement("div"); dh.className = "campo";
+  dh.innerHTML = '<label for="f_hora">Hora do dia</label>';
+  const ih = document.createElement("input");
+  ih.type = "number"; ih.id = "f_hora"; ih.min = 0; ih.max = 23; ih.value = estado.hora;
+  ih.addEventListener("input", e => {
+    const v = parseInt(e.target.value, 10);
+    if (!isNaN(v) && v >= 0 && v <= 23){ estado.hora = v; render(); }
+  });
+  dh.appendChild(ih); c.appendChild(dh);
+
+  const dd = document.createElement("div"); dd.className = "campo";
+  dd.innerHTML = '<label for="f_dia">Dia da semana</label>';
+  const sd = document.createElement("select"); sd.id = "f_dia";
+  DIAS.forEach((n, i) => {
+    const o = document.createElement("option");
+    o.value = i; o.textContent = n;
+    if (i === estado.dia_semana) o.selected = true;
+    sd.appendChild(o);
+  });
+  sd.addEventListener("change", e => { estado.dia_semana = parseInt(e.target.value, 10); render(); });
+  dd.appendChild(sd); c.appendChild(dd);
+}
+
+document.getElementById("reinicia").addEventListener("click", () => {
+  estado.segmento_cliente = null; estado.categoria_assunto = null;
+  estado.contatos_faixa = "0"; estado.reabertura = "false";
+  passo = 0; conversa(); campos(); render();
+});
+
+/* abre já com um caso real na tela, para a página não nascer vazia */
+estado.segmento_cliente = "CDE";
+estado.categoria_assunto = "Cambio";
+estado.contatos_faixa = "0";
+passo = 2;
+conversa(); campos(); render();
+</script>
