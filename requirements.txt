@@ -1,0 +1,16 @@
+# Kenzie 360 — dependências da pipeline de dados
+# Instalar com:  pip install -r requirements.txt
+
+# --- Google Cloud ---
+google-cloud-bigquery>=3.25
+google-cloud-storage>=2.18
+db-dtypes>=1.2            # conversão de DATE/TIME do BigQuery para DataFrame
+
+# --- Dados e modelagem ---
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.5
+joblib>=1.4
+
+# --- Notebook (opcional, só para Kenzie360_Modelo_Risco.ipynb) ---
+jupyter>=1.0
