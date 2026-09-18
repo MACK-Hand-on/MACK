@@ -31,3 +31,10 @@ venv/
 *.bak
 .DS_Store
 Thumbs.db
+
+# ------------------------------------------------- Saidas do treino
+# O 08_modelo_estagio1.py gera o modelo e as predicoes em segundos. O .joblib
+# e binario de 1 MB e quebra quando a versao do scikit-learn muda; as
+# predicoes sao 910 KB derivados. Versionado fica so o .txt de metricas.
+7_modelo/*.joblib
+7_modelo/estagio1_predicoes_teste.csv
